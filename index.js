@@ -90,16 +90,10 @@ class BitmexRest {
 		};
 	}
 	_prepareResponseError(error) {
-		if ( error &&
-				"message" in error && typeof error.message === "string" &&
-					"response" in error && 
-						"body" in error.response && 
-							error.response.body instanceof Object && 
-								error.response.body.error instanceof Object && 
-									typeof error.response.body.error.name === "string" && 
-										typeof error.response.body.error.message === "string" ) {
-			error.message += `(${error.response.body.error.name}:${error.response.body.error.message})`;
-		}
+		try {
+			const {name, message} = error.response.body.error;
+			error.message += `(${name}:${message})`;
+		} catch(e) {}
 	}
 
 }
