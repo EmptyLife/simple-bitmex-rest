@@ -1,11 +1,11 @@
 # simple-bitmex-rest
 
-##Install
+## Install
 ```
 npm i EmptyLife/simple-bitmex-rest
 ```
 
-##Example
+## Example
 ```javascript
 const BitmexRest = require('./simple-bitmex-rest');
 const bitmexRest = new BitmexRest({
